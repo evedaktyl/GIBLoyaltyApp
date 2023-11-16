@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {useFonts} from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import HomeScreen from './screens/HomeScreen';
+import SignUpScreen from './screens/SignUpScreen';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -30,10 +31,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen name='Home'>
           {props => <HomeScreen {...props} onLayoutRootView={onLayoutRootView} />}
         </Stack.Screen>
+        <Stack.Screen name='SignUp' component={SignUpScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
