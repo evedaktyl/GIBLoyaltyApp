@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Image, View, TextInput, Button, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseConfig'
 
 const SignUpScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
@@ -14,7 +15,6 @@ const SignUpScreen = ({navigation}) => {
       }
   
       // Firebase email/password authentication
-      const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in
@@ -67,11 +67,10 @@ const SignUpScreen = ({navigation}) => {
       borderWidth: 1,
       padding: 10,
       backgroundColor: 'white',
-      borderRadius: 12
+      borderRadius: 12,
     },
     text: {
-        color: 'white',
-    },
+        color: 'white',    },
     button: {
       backgroundColor: '#000000', // Example button color
       padding: 10,
